@@ -1,0 +1,17 @@
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\bin\Debug\net7.0\BookingService.DataAccess.deps.json
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\bin\Debug\net7.0\BookingService.DataAccess.runtimeconfig.json
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\bin\Debug\net7.0\BookingService.DataAccess.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\bin\Debug\net7.0\BookingService.DataAccess.pdb
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\bin\Debug\net7.0\BookingService.Entity.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\bin\Debug\net7.0\BookingService.Entity.pdb
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\obj\Debug\net7.0\BookingService.DataAccess.csproj.AssemblyReference.cache
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\obj\Debug\net7.0\BookingService.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\obj\Debug\net7.0\BookingService.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\obj\Debug\net7.0\BookingService.DataAccess.AssemblyInfo.cs
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\obj\Debug\net7.0\BookingService.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\obj\Debug\net7.0\BookingService.DataAccess.csproj.CopyComplete
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\obj\Debug\net7.0\BookingService.DataAccess.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\obj\Debug\net7.0\refint\BookingService.DataAccess.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\obj\Debug\net7.0\BookingService.DataAccess.pdb
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\obj\Debug\net7.0\BookingService.DataAccess.genruntimeconfig.cache
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\obj\Debug\net7.0\ref\BookingService.DataAccess.dll

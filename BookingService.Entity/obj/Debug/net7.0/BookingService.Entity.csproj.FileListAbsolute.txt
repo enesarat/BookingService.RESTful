@@ -1,0 +1,12 @@
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Entity\bin\Debug\net7.0\BookingService.Entity.deps.json
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Entity\bin\Debug\net7.0\BookingService.Entity.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Entity\bin\Debug\net7.0\BookingService.Entity.pdb
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Entity\obj\Debug\net7.0\BookingService.Entity.csproj.AssemblyReference.cache
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Entity\obj\Debug\net7.0\BookingService.Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Entity\obj\Debug\net7.0\BookingService.Entity.AssemblyInfoInputs.cache
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Entity\obj\Debug\net7.0\BookingService.Entity.AssemblyInfo.cs
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Entity\obj\Debug\net7.0\BookingService.Entity.csproj.CoreCompileInputs.cache
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Entity\obj\Debug\net7.0\BookingService.Entity.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Entity\obj\Debug\net7.0\refint\BookingService.Entity.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Entity\obj\Debug\net7.0\BookingService.Entity.pdb
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Entity\obj\Debug\net7.0\ref\BookingService.Entity.dll

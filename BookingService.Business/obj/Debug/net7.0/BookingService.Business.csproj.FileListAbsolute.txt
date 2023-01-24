@@ -1,0 +1,17 @@
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\obj\Debug\net7.0\BookingService.Business.csproj.AssemblyReference.cache
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\obj\Debug\net7.0\BookingService.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\obj\Debug\net7.0\BookingService.Business.AssemblyInfoInputs.cache
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\obj\Debug\net7.0\BookingService.Business.AssemblyInfo.cs
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\obj\Debug\net7.0\BookingService.Business.csproj.CoreCompileInputs.cache
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\bin\Debug\net7.0\BookingService.Business.deps.json
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\bin\Debug\net7.0\BookingService.Business.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\bin\Debug\net7.0\BookingService.Business.pdb
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\bin\Debug\net7.0\BookingService.DataAccess.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\bin\Debug\net7.0\BookingService.Entity.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\bin\Debug\net7.0\BookingService.DataAccess.pdb
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\bin\Debug\net7.0\BookingService.Entity.pdb
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\obj\Debug\net7.0\BookingService.Business.csproj.CopyComplete
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\obj\Debug\net7.0\BookingService.Business.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\obj\Debug\net7.0\refint\BookingService.Business.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\obj\Debug\net7.0\BookingService.Business.pdb
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\obj\Debug\net7.0\ref\BookingService.Business.dll

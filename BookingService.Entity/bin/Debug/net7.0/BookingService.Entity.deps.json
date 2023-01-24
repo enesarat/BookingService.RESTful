@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "BookingService.Entity/1.0.0": {
+        "runtime": {
+          "BookingService.Entity.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BookingService.Entity/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

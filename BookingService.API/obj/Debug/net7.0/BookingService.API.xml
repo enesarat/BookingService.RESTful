@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BookingService.API</name>
+    </assembly>
+    <members>
+        <member name="M:BookingService.API.Controllers.AppartmentsController.Get(BookingService.Entity.Concrete.DTO.PagingParameters)">
+            <summary>
+            This endpoint receives all appartment data via paging, bringing 10 data per page. (default)
+            </summary>
+            <param name="pagingParameters"></param>
+            <returns>10 appartment data for a page </returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.AppartmentsController.Post(BookingService.Entity.Concrete.Appartments)">
+            <summary>
+            This endpoint creates a new appartment record using the values ​​it receives.
+            </summary>
+            <param name="appartment"></param>
+            <returns>Created appartment record</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.AppartmentsController.Put(BookingService.Entity.Concrete.Appartments)">
+            <summary>
+            This endpoint updates an existing appartment record using the values ​​it receives.
+            </summary>
+            <param name="oldAppartment"></param>
+            <returns>Updated appartment record</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.AppartmentsController.DeleteAppartmentById(System.Int32)">
+            <summary>
+            This endpoint deletes the existing appartment record that matches the id value it received.In order for the deletion process to be carried out successfully, the apartment must not be included in any booking record!
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.Get(BookingService.Entity.Concrete.DTO.PagingParameters)">
+            <summary>
+            This endpoint receives all bookings data via paging, bringing 10 data per page. (default)
+            </summary>
+            <param name="pagingParameters"></param>
+            <returns>10 bookings data for a page (default)</returns>        
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.GetBookingById(System.Int32)">
+            <summary>
+            This endpoint gets booking data by id input.
+            </summary>
+            <param name="id"></param>
+            <returns>1 booking data which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.GetBookingAppartmentName(System.Int32)">
+            <summary>
+            This endpoint gets booked apartment name by id.
+            </summary>
+            <param name="id"></param>
+            <returns>Apartment name which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.GetBookingAppartmentAddress(System.Int32)">
+            <summary>
+            This endpoint gets apartment address by id.
+            </summary>
+            <param name="id"></param>
+            <returns>Apartment address which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.GetBookingAppartmentAddressZipCode(System.Int32)">
+            <summary>
+            This endpoint gets zip code of apartment address by id.
+            </summary>
+            <param name="id"></param>
+            <returns>Zip code of apartment address which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.GetBookingAppartmentCity(System.Int32)">
+            <summary>
+            This endpoint gets city of apartment by id.
+            </summary>
+            <param name="id"></param>
+            <returns>City of apartment address which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.GetBookingAppartmentCountry(System.Int32)">
+            <summary>
+            This endpoint gets country of apartment by id.
+            </summary>
+            <param name="id"></param>
+            <returns>Country of apartment address which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.GetBookingStartDate(System.Int32)">
+            <summary>
+            This endpoint gets start date of booking by id.
+            </summary>
+            <param name="id"></param>
+            <returns>Start date of booking which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.GetBookingEndDate(System.Int32)">
+            <summary>
+            This endpoint gets end date of booking by id.
+            </summary>
+            <param name="id"></param>
+            <returns>End date of booking which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.GetBookingConfirmationStatus(System.Int32)">
+            <summary>
+            This endpoint gets confirmation status of booking by id.
+            </summary>
+            <param name="id"></param>
+            <returns>Confirmation status of booking which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.GetByMultipleFilter(BookingService.Entity.Concrete.DTO.FilterDTO)">
+            <summary>
+            This endpoint returns the booking data it finds as a result of the filter made using multiple optional features.
+            </summary>
+            <param name="filter"></param>
+            <returns>Booking data it finds as a result of the filter made using multiple optional features</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.GetBookedUserFirstName(System.Int32)">
+            <summary>
+            This endpoint returns the user first name of booking data by given id.
+            </summary>
+            <param name="filter"></param>
+            <returns>User first name of booking which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.GetBookedUserLastName(System.Int32)">
+            <summary>
+            This endpoint returns the user last name of booking data by given id.
+            </summary>
+            <param name="filter"></param>
+            <returns>User last name of booking which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.GetBookedUserEmail(System.Int32)">
+            <summary>
+            This endpoint returns the user email of booking data by given id.
+            </summary>
+            <param name="filter"></param>
+            <returns>User email of booking which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.GetBookedUserPhoneNumber(System.Int32)">
+            <summary>
+            This endpoint returns the user phone number of booking data by given id.
+            </summary>
+            <param name="filter"></param>
+            <returns>User phone number of booking which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.GetBookingInfoById(System.Int32)">
+            <summary>
+            This endpoint returns the normalized booking informations of booking record by given id.
+            </summary>
+            <param name="filter"></param>
+            <returns>Normalized booking informations of booking which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.Post(BookingService.Entity.Concrete.Bookings)">
+            <summary>
+            This endpoint creates a new booking record using the values ​​it receives.
+            </summary>
+            <param name="book"></param>
+            <returns>Created booking record</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.Put(BookingService.Entity.Concrete.Bookings)">
+            <summary>
+            This endpoint updates an existing booking record using the values ​​it receives.
+            </summary>
+            <param name="oldBooking"></param>
+            <returns>Updated booking record</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.BookingsController.DeleteBookingById(System.Int32)">
+            <summary>
+            This endpoint deletes the existing booking record that matches the id value it received. In order for the deletion to be performed, the confirmation status must be 0 (not confirmed)!
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.UsersController.Get(BookingService.Entity.Concrete.DTO.PagingParameters)">
+            <summary>
+            This endpoint receives all user data via paging, bringing 10 data per page. (default)
+            </summary>
+            <param name="pagingParameters"></param>
+            <returns>10 user data for a page (default)</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.UsersController.GetFistName(System.Int32)">
+            <summary>
+            This endpoint gets first name of user by id.
+            </summary>
+            <param name="id"></param>
+            <returns>First name of user which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.UsersController.GetLastName(System.Int32)">
+            <summary>
+            This endpoint gets last name of user by id.
+            </summary>
+            <param name="id"></param>
+            <returns>Last name of user which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.UsersController.GetEmail(System.Int32)">
+            <summary>
+            This endpoint gets email of user by id.
+            </summary>
+            <param name="id"></param>
+            <returns>Email of user which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.UsersController.GetPhoneNo(System.Int32)">
+            <summary>
+            This endpoint gets phone number of user by id.
+            </summary>
+            <param name="id"></param>
+            <returns>Phone number of user which exist with id</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.UsersController.Post(BookingService.Entity.Concrete.Users)">
+            <summary>
+            This endpoint creates a new user record using the values ​​it receives.
+            </summary>
+            <param name="user"></param>
+            <returns>Created user record</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.UsersController.Put(BookingService.Entity.Concrete.Users)">
+            <summary>
+            This endpoint updates an existing user record using the values ​​it receives.
+            </summary>
+            <param name="oldUser"></param>
+            <returns>Updated user record</returns>
+        </member>
+        <member name="M:BookingService.API.Controllers.UsersController.DeleteUserById(System.Int32)">
+            <summary>
+            This endpoint deletes the existing user record that matches the id value it received.In order for the deletion process to be carried out successfully, the user must not be included in any booking record!
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
