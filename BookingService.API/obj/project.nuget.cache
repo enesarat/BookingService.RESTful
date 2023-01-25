@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "8pIJchzB8i7h9ElgXccSLF7LLkAXJvO2UslCwY20tX0i7At2sePY3vIgbQ+gpvO55ZynAzLvlxZR7mJCxPbbIw==",
+  "dgSpecHash": "VFYoeflvNQxOE142Ijp4LKHGMWNrgP+0yUVnwr9KtdOazTotqJj5h7vYfj7Il4ZhSEiiUdfVnTr0LjB0pLRiOQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Enes\\source\\repos\\BookingService.RESTful\\BookingService.API\\BookingService.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Enes\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\Enes\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\Enes\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Enes\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
     "C:\\Users\\Enes\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",

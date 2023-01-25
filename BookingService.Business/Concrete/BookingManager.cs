@@ -213,43 +213,38 @@ namespace BookingService.Business.Concrete
             return queryResults;
         }
 
-        public async Task<string> GetAppartmentAddress(Bookings item)
+        public async Task<string> GetAppartmentAddress(int id)
         {
-            var aptId = item.apartment_id;
-            List<Appartments> appartmentsList = await appartmentAccess.GetAllItems();
-            var aptAddress = appartmentsList.Find(x => x.id == aptId).address.ToString();
+            Appartments appartment = await appartmentAccess.GetItemById(id);
+            string aptAddress = appartment.address;
             return aptAddress;
         }
 
-        public async Task<string> GetAppartmentAddressZipCode(Bookings item)
+        public async Task<string> GetAppartmentAddressZipCode(int id)
         {
-            var aptId = item.apartment_id;
-            List<Appartments> appartmentsList = await appartmentAccess.GetAllItems();
-            var aptAddressZipCode = appartmentsList.Find(x => x.id == aptId).zip_code.ToString();
+            Appartments appartment = await appartmentAccess.GetItemById(id);
+            string aptAddressZipCode = appartment.zip_code;
             return aptAddressZipCode;
         }
 
-        public async Task<string> GetAppartmentCity(Bookings item)
+        public async Task<string> GetAppartmentCity(int id)
         {
-            var aptId = item.apartment_id;
-            List<Appartments> appartmentsList = await appartmentAccess.GetAllItems();
-            var aptCity = appartmentsList.Find(x => x.id == aptId).city.ToString();
+            Appartments appartment = await appartmentAccess.GetItemById(id);
+            string aptCity = appartment.city;
             return aptCity;
         }
 
-        public async Task<string> GetAppartmentCountry(Bookings item)
+        public async Task<string> GetAppartmentCountry(int id)
         {
-            var aptId = item.apartment_id;
-            List<Appartments> appartmentsList = await appartmentAccess.GetAllItems();
-            var aptCountry = appartmentsList.Find(x => x.id == aptId).country.ToString();
+            Appartments appartment = await appartmentAccess.GetItemById(id);
+            string aptCountry = appartment.country;
             return aptCountry;
         }
 
-        public async Task<string> GetAppartmentName(Bookings item)
+        public async Task<string> GetAppartmentName(int id)
         {
-            var aptId = item.apartment_id;
-            List<Appartments> appartmentsList = await appartmentAccess.GetAllItems();
-            var aptName = appartmentsList.Find(x => x.id == aptId).name.ToString();
+            Appartments appartment = await appartmentAccess.GetItemById(id);
+            string aptName = appartment.name;
             return aptName;
         }
 
@@ -336,6 +331,11 @@ namespace BookingService.Business.Concrete
             return booking;
         }
 
+        /* ------------------------------------------- INFO ABOUT INSERT ------------------------------------------- *
+         * In the externally used pgsql database, the ID column is not set as "primary key" in the "bookings" table, 
+         * and it does not seem possible for you to apply this change to the database due to the schema change constraint. 
+         * Since the auto-increment feature could not be set, the "increment" operation in this method had to be done manually.
+         *//*/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\*/
         public async Task<Bookings> InsertElement(Bookings item)
         {
             List<Bookings> bookingList = await bookingsAccess.GetAllItems();

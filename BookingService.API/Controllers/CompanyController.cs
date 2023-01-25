@@ -4,6 +4,7 @@ using BookingService.Entity.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using BookingService.DataAccess.Concrete.Helper.Exceptions;
+using AutoMapper;
 
 namespace BookingService.API.Controllers
 {
@@ -11,17 +12,22 @@ namespace BookingService.API.Controllers
     [ApiController]
     public class CompanyController : ControllerBase
     {
-        ICompanyService manageCompany;
-        public CompanyController(ICompanyService companyService)
+        private readonly ICompanyService _manageCompany;
+        private readonly IMapper _mapper;
+
+        public CompanyController(ICompanyService companyService, IMapper mapper)
         {
-            manageCompany = companyService;
+            _manageCompany = companyService;
+            _mapper = mapper;
         }
 
         //-------------------------------------------------------Get Requests Starts------------------------------------------//
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] PagingParameters pagingParameters)
         {
-            return Ok(await manageCompany.GetElementsByPaging(pagingParameters)); // 200 + retrieved data 
+            var companies = await _manageCompany.GetElementsByPaging(pagingParameters);
+            var compaiesDTO = _mapper.Map<List<CompanyDTO>>(companies.ToList());
+            return Ok(compaiesDTO); // 200 + retrieved data 
         }
         //-------------------------------------------------------Get Requests Ends------------------------------------------//
 
@@ -31,7 +37,7 @@ namespace BookingService.API.Controllers
         {
             if (ModelState.IsValid)
             {
-                var newCompany = await manageCompany.InsertElement(company);
+                var newCompany = await _manageCompany.InsertElement(company);
                 return CreatedAtAction("Get", new { companyId = newCompany.id }, newCompany); // 201 + data + header info for data location
             }
             return BadRequest(ModelState); // 400 + validation errors
@@ -44,9 +50,9 @@ namespace BookingService.API.Controllers
 
         public async Task<IActionResult> Put([FromBody] Company oldCompany)
         {
-            if (await manageCompany.GetElementById(oldCompany.id) != null)
+            if (await _manageCompany.GetElementById(oldCompany.id) != null)
             {
-                return Ok(await manageCompany.UpdateElement(oldCompany)); // 200 + data
+                return Ok(await _manageCompany.UpdateElement(oldCompany)); // 200 + data
             }
             return NotFound(); // 404 
         }
@@ -58,9 +64,9 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> DeleteCompanyById(int id)
         {
-            if (await manageCompany.GetElementById(id) != null)
+            if (await _manageCompany.GetElementById(id) != null)
             {
-                await manageCompany.DeleteItem(id);
+                await _manageCompany.DeleteItem(id);
                 return Ok(); // 200
             }
             return NotFound(); // 404 

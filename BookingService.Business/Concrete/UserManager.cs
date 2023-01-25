@@ -63,43 +63,36 @@ namespace BookingService.Business.Concrete
             return userList;
         }
 
-        public async Task<string> GetUserEmail(Users item)
+        public async Task<string> GetUserEmail(int id)
         {
-            string email = item.email;
+            Users user = await GetElementById(id);
+            string email = user.email;
             return email;
         }
 
-        public async Task<string> GetUserFirstName(Users item)
+        public async Task<string> GetUserFirstName(int id)
         {
-            string firstName = item.first_name;
+            Users user = await GetElementById(id);
+            string firstName = user.first_name;
             return firstName;
         }
 
-        public async Task<string> GetUserLastName(Users item)
+        public async Task<string> GetUserLastName(int id)
         {
-            string lastName = item.last_name;
+            Users user = await GetElementById(id);
+            string lastName = user.last_name;
             return lastName;
         }
 
-        public async Task<string> GetUserPhoneNo(Users item)
+        public async Task<string> GetUserPhoneNo(int id)
         {
-            string phoneNo = item.phone;
+            Users user = await GetElementById(id);
+            string phoneNo = user.phone;
             return phoneNo;
         }
 
         public async Task<Users> InsertElement(Users item)
         {
-            List<Users> userLsit = await usersAccess.GetAllItems();
-            var count = userLsit.Count;
-            if (count > 0)
-            {
-                var lastUser = userLsit[count - 1];
-                item.id = lastUser.id + 1;
-            }
-            else
-            {
-                item.id = 0;
-            }
             await usersAccess.InsertItem(item);
             return item;
         }

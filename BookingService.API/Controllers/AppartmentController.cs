@@ -1,4 +1,5 @@
-﻿using BookingService.Business.Abstract;
+﻿using AutoMapper;
+using BookingService.Business.Abstract;
 using BookingService.DataAccess.Concrete.Helper.Exceptions;
 using BookingService.Entity.Concrete;
 using BookingService.Entity.Concrete.DTO;
@@ -11,10 +12,13 @@ namespace BookingService.API.Controllers
     [ApiController]
     public class AppartmentsController : ControllerBase
     {
-        IAppartmentService manageAppartments;
-        public AppartmentsController(IAppartmentService appartmentService)
+        private readonly IAppartmentService _manageAppartments;
+        private readonly IMapper _mapper;
+
+        public AppartmentsController(IAppartmentService appartmentService, IMapper mapper)
         {
-            manageAppartments = appartmentService;
+            _manageAppartments = appartmentService;
+            _mapper = mapper;
         }
 
         //-------------------------------------------------------Get Requests Starts------------------------------------------//
@@ -26,7 +30,9 @@ namespace BookingService.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] PagingParameters pagingParameters)
         {
-            return Ok(await manageAppartments.GetElementsByPaging(pagingParameters)); // 200 + retrieved data 
+            var appartments = await _manageAppartments.GetElementsByPaging(pagingParameters);
+            var appartmentsDTO = _mapper.Map<List<AppartmentsDTO>>(appartments.ToList());
+            return Ok(appartmentsDTO); // 200 + retrieved data 
         }
         //-------------------------------------------------------Get Requests Ends------------------------------------------//
 
@@ -41,7 +47,7 @@ namespace BookingService.API.Controllers
         {
             if (ModelState.IsValid)
             {
-                var newAppartment = await manageAppartments.InsertElement(appartment);
+                var newAppartment = await _manageAppartments.InsertElement(appartment);
                 return CreatedAtAction("Get", new { appartmentId = newAppartment.id }, newAppartment); // 201 + data + header info for data location
             }
             return BadRequest(ModelState); // 400 + validation errors
@@ -59,9 +65,9 @@ namespace BookingService.API.Controllers
 
         public async Task<IActionResult> Put([FromBody] Appartments oldAppartment)
         {
-            if (await manageAppartments.GetElementById(oldAppartment.id) != null)
+            if (await _manageAppartments.GetElementById(oldAppartment.id) != null)
             {
-                return Ok(await manageAppartments.UpdateElement(oldAppartment)); // 200 + data
+                return Ok(await _manageAppartments.UpdateElement(oldAppartment)); // 200 + data
             }
             return NotFound(); // 404 
         }
@@ -78,9 +84,9 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> DeleteAppartmentById(int id)
         {
-            if (await manageAppartments.GetElementById(id) != null)
+            if (await _manageAppartments.GetElementById(id) != null)
             {
-                var status = await manageAppartments.DeleteItemWithRecordCheck(id);
+                var status = await _manageAppartments.DeleteItemWithRecordCheck(id);
 
                 if (status)
                 {

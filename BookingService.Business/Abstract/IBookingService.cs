@@ -15,11 +15,11 @@ namespace BookingService.Business.Abstract
         public Task<string> GetUserLastName(int id);
         public Task<string> GetUserEmail(int id);
         public Task<string> GetUserPhoneNumber(int id);
-        public Task<string> GetAppartmentName(Bookings item);
-        public Task<string> GetAppartmentAddress(Bookings item);
-        public Task<string> GetAppartmentAddressZipCode(Bookings item);
-        public Task<string> GetAppartmentCity(Bookings item);
-        public Task<string> GetAppartmentCountry(Bookings item);
+        public Task<string> GetAppartmentName(int id);
+        public Task<string> GetAppartmentAddress(int id);
+        public Task<string> GetAppartmentAddressZipCode(int id);
+        public Task<string> GetAppartmentCity(int id);
+        public Task<string> GetAppartmentCountry(int id);
         public Task<string> GetBookingStartDate(int id);
         public Task<string> GetBookingEndDate(int id);
         public Task<string> GetBookingConfirmationStatus(int id);

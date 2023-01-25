@@ -4,6 +4,7 @@ using BookingService.Entity.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using BookingService.DataAccess.Concrete.Helper.Exceptions;
+using AutoMapper;
 
 namespace BookingService.API.Controllers
 {
@@ -11,10 +12,14 @@ namespace BookingService.API.Controllers
     [ApiController]
     public class BookingsController : ControllerBase
     {
-        private IBookingService manageBookings;
-        public BookingsController(IBookingService agentService)
+        private readonly IBookingService _manageBookings;
+        private readonly IMapper _mapper;
+
+        public BookingsController(IBookingService agentService, IBookingService manageBookings, IMapper mapper)
         {
-            this.manageBookings = agentService;
+            _manageBookings = agentService;
+            _manageBookings = manageBookings;
+            _mapper = mapper;
         }
 
         //-------------------------------------------------------Get Requests Starts------------------------------------------//
@@ -26,7 +31,9 @@ namespace BookingService.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] PagingParameters pagingParameters)
         {
-            return Ok(await manageBookings.GetElementsByPaging(pagingParameters)); // 200 + retrieved data 
+            var bookings = await _manageBookings.GetElementsByPaging(pagingParameters);
+            var bookingsDTO = _mapper.Map<List<BookingsDTO>>(bookings.ToList());
+            return Ok(bookingsDTO); // 200 + retrieved data 
         }
 
         /// <summary>
@@ -39,7 +46,9 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetBookingById(int id)
         {
-            return Ok(await manageBookings.GetElementById(id)); // 200 + retrieved data   
+            var booking = await _manageBookings.GetElementById(id);
+            var bookingDTO = _mapper.Map<BookingsDTO>(booking);
+            return Ok(bookingDTO); // 200 + retrieved data   
         }
 
         /// <summary>
@@ -52,8 +61,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetBookingAppartmentName(int id)
         {
-            var booking = manageBookings.GetElementById(id);
-            string aptName = await manageBookings.GetAppartmentName(await booking);
+            string aptName = await _manageBookings.GetAppartmentName(id);
             return Ok(aptName); // 200 + retrieved data   
         }
 
@@ -67,8 +75,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetBookingAppartmentAddress(int id)
         {
-            var booking = manageBookings.GetElementById(id);
-            string aptAddress = await manageBookings.GetAppartmentAddress(await booking);
+            string aptAddress = await _manageBookings.GetAppartmentAddress(id);
             return Ok(aptAddress); // 200 + retrieved data   
         }
 
@@ -82,8 +89,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetBookingAppartmentAddressZipCode(int id)
         {
-            var booking = manageBookings.GetElementById(id);
-            string aptAddressZipCode = await manageBookings.GetAppartmentAddressZipCode(await booking);
+            string aptAddressZipCode = await _manageBookings.GetAppartmentAddressZipCode(id);
             return Ok(aptAddressZipCode); // 200 + retrieved data   
         }
 
@@ -97,8 +103,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetBookingAppartmentCity(int id)
         {
-            var booking = manageBookings.GetElementById(id);
-            string aptCity = await manageBookings.GetAppartmentCity(await booking);
+            string aptCity = await _manageBookings.GetAppartmentCity(id);
             return Ok(aptCity); // 200 + retrieved data   
         }
 
@@ -112,8 +117,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetBookingAppartmentCountry(int id)
         {
-            var booking = manageBookings.GetElementById(id);
-            string aptCountry = await manageBookings.GetAppartmentCountry(await booking);
+            string aptCountry = await _manageBookings.GetAppartmentCountry(id);
             return Ok(aptCountry); // 200 + retrieved data   
         }
 
@@ -127,7 +131,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetBookingStartDate(int id)
         {
-            string startDate = await manageBookings.GetBookingStartDate(id);
+            string startDate = await _manageBookings.GetBookingStartDate(id);
             return Ok(startDate); // 200 + retrieved data   
         }
 
@@ -141,7 +145,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetBookingEndDate(int id)
         {
-            string endDate = await manageBookings.GetBookingEndDate(id);
+            string endDate = await _manageBookings.GetBookingEndDate(id);
             return Ok(endDate); // 200 + retrieved data   
         }
 
@@ -155,7 +159,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetBookingConfirmationStatus(int id)
         {
-            string confirmationStatus = await manageBookings.GetBookingConfirmationStatus(id);
+            string confirmationStatus = await _manageBookings.GetBookingConfirmationStatus(id);
             return Ok(confirmationStatus); // 200 + retrieved data   
         }
 
@@ -169,7 +173,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public IActionResult GetByMultipleFilter([FromQuery] FilterDTO filter)
         {
-            List<Bookings> filterResults = manageBookings.GetByMultipleFilter(filter);
+            List<Bookings> filterResults = _manageBookings.GetByMultipleFilter(filter);
             return Ok(filterResults); // 200 + retrieved data   
         }
 
@@ -183,7 +187,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetBookedUserFirstName(int id)
         {
-            string userFirstName = await manageBookings.GetUserFirstName(id);
+            string userFirstName = await _manageBookings.GetUserFirstName(id);
             return Ok(userFirstName); // 200 + retrieved data   
         }
 
@@ -197,7 +201,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetBookedUserLastName(int id)
         {
-            string userLastName = await manageBookings.GetUserLastName(id);
+            string userLastName = await _manageBookings.GetUserLastName(id);
             return Ok(userLastName); // 200 + retrieved data   
         }
 
@@ -211,7 +215,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetBookedUserEmail(int id)
         {
-            string userEmail = await manageBookings.GetUserEmail(id);
+            string userEmail = await _manageBookings.GetUserEmail(id);
             return Ok(userEmail); // 200 + retrieved data   
         }
 
@@ -225,7 +229,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetBookedUserPhoneNumber(int id)
         {
-            string userPhone = await manageBookings.GetUserPhoneNumber(id);
+            string userPhone = await _manageBookings.GetUserPhoneNumber(id);
             return Ok(userPhone); // 200 + retrieved data   
         }
 
@@ -239,7 +243,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetBookingInfoById(int id)
         {
-            BookingInfoListDTO booking = await manageBookings.GetBookingInfoById(id);
+            BookingInfoListDTO booking = await _manageBookings.GetBookingInfoById(id);
             return Ok(booking); // 200 + retrieved data   
         }
         //-------------------------------------------------------Get Requests Ends------------------------------------------//
@@ -255,7 +259,7 @@ namespace BookingService.API.Controllers
         {
             if (ModelState.IsValid)
             {
-                var newBooknig = await manageBookings.InsertElement(book);
+                var newBooknig = await _manageBookings.InsertElement(book);
                 return CreatedAtAction("Get", new { bookingId = newBooknig.id }, newBooknig); // 201 + data + header info for data location
             }
             return BadRequest(ModelState); // 400 + validation errors
@@ -273,9 +277,9 @@ namespace BookingService.API.Controllers
 
         public async Task<IActionResult> Put([FromBody] Bookings oldBooking)
         {
-            if (await manageBookings.GetElementById(oldBooking.id) != null)
+            if (await _manageBookings.GetElementById(oldBooking.id) != null)
             {
-                return Ok(await manageBookings.UpdateElement(oldBooking)); // 200 + data
+                return Ok(await _manageBookings.UpdateElement(oldBooking)); // 200 + data
             }
             return NotFound(); // 404 
         }
@@ -292,9 +296,9 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> DeleteBookingById(int id)
         {
-            if (await manageBookings.GetElementById(id) != null)
+            if (await _manageBookings.GetElementById(id) != null)
             {
-                var status = await manageBookings.DeleteItemWithCretdention(id);
+                var status = await _manageBookings.DeleteItemWithCretdention(id);
 
                 if (status)
                 {

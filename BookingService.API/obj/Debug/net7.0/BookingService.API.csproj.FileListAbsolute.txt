@@ -50,3 +50,5 @@ C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.API\obj\Debug\n
 C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.API\bin\Debug\net7.0\BookingService.API.xml
 C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.API\obj\Debug\net7.0\BookingService.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.API\obj\Debug\net7.0\BookingService.API.xml
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.API\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

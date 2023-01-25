@@ -4,6 +4,7 @@ using BookingService.Entity.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using BookingService.DataAccess.Concrete.Helper.Exceptions;
+using AutoMapper;
 
 namespace BookingService.API.Controllers
 {
@@ -11,10 +12,12 @@ namespace BookingService.API.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        IUserService manageUsers;
-        public UsersController(IUserService usersService)
+        private readonly IUserService _manageUsers;
+        private readonly IMapper _mapper;
+        public UsersController(IUserService usersService, IMapper mapper)
         {
-            manageUsers = usersService;
+            _manageUsers = usersService;
+            _mapper = mapper;
         }
 
         //-------------------------------------------------------Get Requests Starts------------------------------------------//
@@ -26,7 +29,10 @@ namespace BookingService.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] PagingParameters pagingParameters)
         {
-            return Ok(await manageUsers.GetElementsByPaging(pagingParameters)); // 200 + retrieved data 
+            var users = await _manageUsers.GetElementsByPaging(pagingParameters);
+            var usersDTO = _mapper.Map<List<UsersDTO>>(users.ToList());
+
+            return Ok(usersDTO); // 200 + retrieved data 
         }
 
         /// <summary>
@@ -39,8 +45,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetFistName(int id)
         {
-            var user = manageUsers.GetElementById(id);
-            var fistname = manageUsers.GetUserFirstName(await user);
+            string fistname = await _manageUsers.GetUserFirstName(id);
             return Ok(fistname); // 200 + retrieved data 
         }
 
@@ -54,8 +59,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetLastName(int id)
         {
-            var user = manageUsers.GetElementById(id);
-            var lastname = manageUsers.GetUserLastName(await user);
+            var lastname = await _manageUsers.GetUserLastName(id);
             return Ok(lastname); // 200 + retrieved data 
         }
 
@@ -69,8 +73,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetEmail(int id)
         {
-            var user = manageUsers.GetElementById(id);
-            var email = manageUsers.GetUserEmail(await user);
+            var email = await _manageUsers.GetUserEmail(id);
             return Ok(email); // 200 + retrieved data 
         }
 
@@ -84,8 +87,7 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> GetPhoneNo(int id)
         {
-            var user = manageUsers.GetElementById(id);
-            var phoneno = manageUsers.GetUserPhoneNo(await user);
+            var phoneno = await _manageUsers.GetUserPhoneNo(id);
             return Ok(phoneno); // 200 + retrieved data 
         }
         //-------------------------------------------------------Get Requests Ends------------------------------------------//
@@ -101,7 +103,7 @@ namespace BookingService.API.Controllers
         {
             if (ModelState.IsValid)
             {
-                var newUser = await manageUsers.InsertElement(user);
+                var newUser = await _manageUsers.InsertElement(user);
                 return CreatedAtAction("Get", new { userId = newUser.id }, newUser); // 201 + data + header info for data location
             }
             return BadRequest(ModelState); // 400 + validation errors
@@ -119,9 +121,9 @@ namespace BookingService.API.Controllers
 
         public async Task<IActionResult> Put([FromBody] Users oldUser)
         {
-            if (await manageUsers.GetElementById(oldUser.id) != null)
+            if (await _manageUsers.GetElementById(oldUser.id) != null)
             {
-                return Ok(await manageUsers.UpdateElement(oldUser)); // 200 + data
+                return Ok(await _manageUsers.UpdateElement(oldUser)); // 200 + data
             }
             return NotFound(); // 404 
         }
@@ -138,9 +140,9 @@ namespace BookingService.API.Controllers
         [Route("[action]/{id}")]
         public async Task<IActionResult> DeleteUserById(int id)
         {
-            if (await manageUsers.GetElementById(id) != null)
+            if (await _manageUsers.GetElementById(id) != null)
             {
-                var status = await manageUsers.DeleteItemWithRecordCheck(id);
+                var status = await _manageUsers.DeleteItemWithRecordCheck(id);
 
                 if (status)
                 {

@@ -65,17 +65,6 @@ namespace BookingService.Business.Concrete
 
         public async Task<Appartments> InsertElement(Appartments item)
         {
-            List<Appartments> appartmentList = await appartmentsAccess.GetAllItems();
-            var count = appartmentList.Count;
-            if (count > 0)
-            {
-                var lastAppartment = appartmentList[count - 1];
-                item.id = lastAppartment.id + 1;
-            }
-            else
-            {
-                item.id = 0;
-            }
             await appartmentsAccess.InsertItem(item);
             return item;
         }

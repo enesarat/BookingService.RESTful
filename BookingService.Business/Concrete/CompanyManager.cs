@@ -49,17 +49,6 @@ namespace BookingService.Business.Concrete
 
         public async Task<Company> InsertElement(Company item)
         {
-            List<Company> companyList = await companyAccess.GetAllItems();
-            var count = companyList.Count;
-            if (count > 0 || companyList != null)
-            {
-                var lastCompany = companyList[count - 1];
-                item.id = lastCompany.id + 1;
-            }
-            else
-            {
-                item.id = 0;
-            }
             await companyAccess.InsertItem(item);
             return item;
         }

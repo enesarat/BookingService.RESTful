@@ -1,5 +1,6 @@
 using BookingService.Business.Abstract;
 using BookingService.Business.Concrete;
+using BookingService.Business.Concrete.Mapper;
 using BookingService.DataAccess.Abstract;
 using BookingService.DataAccess.Concrete.EntityFramework;
 using Microsoft.OpenApi.Models;
@@ -41,6 +42,7 @@ builder.Services.AddScoped<ICompanyDAL, EfCompanyRepository>();
 builder.Services.AddScoped<IUserService, UserManager>();
 builder.Services.AddScoped<IUsersDAL, EfUsersRepository>();
 
+builder.Services.AddAutoMapper(typeof(MapProfile));
 
 var app = builder.Build();
 
