@@ -1,9 +1,11 @@
 using BookingService.Business.Abstract;
 using BookingService.Business.Concrete;
 using BookingService.Business.Concrete.Mapper;
+using BookingService.Cache;
 using BookingService.DataAccess.Abstract;
 using BookingService.DataAccess.Concrete.EntityFramework;
 using Microsoft.OpenApi.Models;
+using StackExchange.Redis;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -43,6 +45,18 @@ builder.Services.AddScoped<IUserService, UserManager>();
 builder.Services.AddScoped<IUsersDAL, EfUsersRepository>();
 
 builder.Services.AddAutoMapper(typeof(MapProfile));
+
+builder.Services.AddSingleton<RedisService>(sp =>
+{
+    return new RedisService(url: builder.Configuration[key: "CacheOptions:Url"]);
+});
+
+builder.Services.AddSingleton<IDatabase>(sp =>
+{
+    var redisService = sp.GetRequiredService<RedisService>();
+    return redisService.GetDatabase(0);
+});
+
 
 var app = builder.Build();
 

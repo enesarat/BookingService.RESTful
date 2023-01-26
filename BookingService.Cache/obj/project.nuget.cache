@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "doS9Ox5tQaWv4vDT33CmiaoFdD5LohV7MAgYGM16MvFSQp98vcZS3wmc1nsUxX6Cu0d7FL1PMApIATsTNDC27w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Enes\\source\\repos\\BookingService.RESTful\\BookingService.Cache\\BookingService.Cache.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Enes\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.2\\pipelines.sockets.unofficial.2.2.2.nupkg.sha512",
+    "C:\\Users\\Enes\\.nuget\\packages\\stackexchange.redis\\2.6.90\\stackexchange.redis.2.6.90.nupkg.sha512",
+    "C:\\Users\\Enes\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
