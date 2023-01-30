@@ -240,6 +240,9 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
+              "C:\\Users\\Enes\\source\\repos\\BookingService.RESTful\\BookingService.Cache\\BookingService.Cache.csproj": {
+                "projectPath": "C:\\Users\\Enes\\source\\repos\\BookingService.RESTful\\BookingService.Cache\\BookingService.Cache.csproj"
+              },
               "C:\\Users\\Enes\\source\\repos\\BookingService.RESTful\\BookingService.Entity\\BookingService.Entity.csproj": {
                 "projectPath": "C:\\Users\\Enes\\source\\repos\\BookingService.RESTful\\BookingService.Entity\\BookingService.Entity.csproj"
               }

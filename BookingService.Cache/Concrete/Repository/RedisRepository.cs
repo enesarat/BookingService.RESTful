@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookingService.Cache
+namespace BookingService.Cache.Concrete.Repository
 {
-    public class RedisService
+    public class RedisRepository
     {
         private readonly ConnectionMultiplexer _connectionMultiplexer;
-        public RedisService(string url)
+        public RedisRepository(string url)
         {
             _connectionMultiplexer = ConnectionMultiplexer.Connect(url);
         }

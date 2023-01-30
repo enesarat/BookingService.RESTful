@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "roQF0v+qxsr15evYA0F22sYAHz4Qzud+0xQeIv+kOfDr7DDmZwLpNFCSHECf/HKfer0SR9DCM4b8EbCcXjlFgw==",
+  "dgSpecHash": "aD5/udtbAIsfJ6deyJtTy3Lo1ZDM1vTBtF/jHRMjNzBM+mGrzXeIAJJSvp4lsXnwhJDmoHRboPzu2v0GzU2lMw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Enes\\source\\repos\\BookingService.RESTful\\BookingService.DataAccess\\BookingService.DataAccess.csproj",
   "expectedPackageFiles": [
@@ -48,9 +48,12 @@
     "C:\\Users\\Enes\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\Enes\\.nuget\\packages\\npgsql\\7.0.1\\npgsql.7.0.1.nupkg.sha512",
     "C:\\Users\\Enes\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.1\\npgsql.entityframeworkcore.postgresql.7.0.1.nupkg.sha512",
+    "C:\\Users\\Enes\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.2\\pipelines.sockets.unofficial.2.2.2.nupkg.sha512",
+    "C:\\Users\\Enes\\.nuget\\packages\\stackexchange.redis\\2.6.90\\stackexchange.redis.2.6.90.nupkg.sha512",
     "C:\\Users\\Enes\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\Enes\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\Enes\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.5.0\\system.diagnostics.diagnosticsource.4.5.0.nupkg.sha512",
+    "C:\\Users\\Enes\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
     "C:\\Users\\Enes\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\Enes\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
     "C:\\Users\\Enes\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.1\\system.threading.tasks.extensions.4.5.1.nupkg.sha512"

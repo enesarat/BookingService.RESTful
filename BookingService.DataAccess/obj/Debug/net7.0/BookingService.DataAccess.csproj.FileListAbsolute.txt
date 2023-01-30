@@ -15,3 +15,5 @@ C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\obj\
 C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\obj\Debug\net7.0\BookingService.DataAccess.pdb
 C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\obj\Debug\net7.0\BookingService.DataAccess.genruntimeconfig.cache
 C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\obj\Debug\net7.0\ref\BookingService.DataAccess.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\bin\Debug\net7.0\BookingService.Cache.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.DataAccess\bin\Debug\net7.0\BookingService.Cache.pdb

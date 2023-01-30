@@ -1,9 +1,10 @@
 using BookingService.Business.Abstract;
 using BookingService.Business.Concrete;
 using BookingService.Business.Concrete.Mapper;
-using BookingService.Cache;
+using BookingService.Cache.Concrete.Repository;
 using BookingService.DataAccess.Abstract;
 using BookingService.DataAccess.Concrete.EntityFramework;
+using BookingService.DataAccess.Concrete.EntityFramework.Cache;
 using Microsoft.OpenApi.Models;
 using StackExchange.Redis;
 using System.Reflection;
@@ -32,11 +33,32 @@ builder.Services.AddSwaggerGen(options =>
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
+
+builder.Services.AddSingleton<RedisRepository>(sp =>
+{
+    return new RedisRepository(url: builder.Configuration[key: "CacheOptions:Url"]);
+});
+
+builder.Services.AddSingleton<IDatabase>(sp =>
+{
+    var redisService = sp.GetRequiredService<RedisRepository>();
+    return redisService.GetDatabase(0);
+});
+
+
 builder.Services.AddScoped<IBookingService, BookingManager>();
 builder.Services.AddScoped<IBookingsDAL, EfBookingsRepository>();
 
 builder.Services.AddScoped<IAppartmentService, AppartmentManager>();
-builder.Services.AddScoped<IAppartmentsDAL, EfAppartmentsRepository>();
+//builder.Services.AddScoped<IAppartmentsDAL, EfAppartmentsRepository>();
+builder.Services.AddScoped <IAppartmentsDAL>(sp=>
+{
+    var appartmentRepository = new EfAppartmentsRepository();
+    var redisRepository = sp.GetRequiredService<RedisRepository>();
+    return new EfAppartmentRepositoryWithCache(appartmentRepository, redisRepository);
+});
+
+
 
 builder.Services.AddScoped<ICompanyService, CompanyManager>();
 builder.Services.AddScoped<ICompanyDAL, EfCompanyRepository>();
@@ -45,17 +67,6 @@ builder.Services.AddScoped<IUserService, UserManager>();
 builder.Services.AddScoped<IUsersDAL, EfUsersRepository>();
 
 builder.Services.AddAutoMapper(typeof(MapProfile));
-
-builder.Services.AddSingleton<RedisService>(sp =>
-{
-    return new RedisService(url: builder.Configuration[key: "CacheOptions:Url"]);
-});
-
-builder.Services.AddSingleton<IDatabase>(sp =>
-{
-    var redisService = sp.GetRequiredService<RedisService>();
-    return redisService.GetDatabase(0);
-});
 
 
 var app = builder.Build();

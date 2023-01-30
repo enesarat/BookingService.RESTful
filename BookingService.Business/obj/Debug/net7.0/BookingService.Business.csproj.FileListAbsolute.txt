@@ -15,3 +15,5 @@ C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\obj\De
 C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\obj\Debug\net7.0\refint\BookingService.Business.dll
 C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\obj\Debug\net7.0\BookingService.Business.pdb
 C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\obj\Debug\net7.0\ref\BookingService.Business.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\bin\Debug\net7.0\BookingService.Cache.dll
+C:\Users\Enes\source\repos\BookingService.RESTful\BookingService.Business\bin\Debug\net7.0\BookingService.Cache.pdb

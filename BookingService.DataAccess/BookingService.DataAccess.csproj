@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BookingService.Cache\BookingService.Cache.csproj" />
     <ProjectReference Include="..\BookingService.Entity\BookingService.Entity.csproj" />
   </ItemGroup>
 

@@ -712,6 +712,7 @@
       },
       "BookingService.DataAccess/1.0.0": {
         "dependencies": {
+          "BookingService.Cache": "1.0.0",
           "BookingService.Entity": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.Mvc.Formatters.Json": "2.2.0",
